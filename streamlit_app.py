@@ -21,10 +21,12 @@ engine = AnonymizerEngine()
 # and an 'encrypt' operator to get an encrypted anonymization output:
 start_time = time.time()
 
+person_name = "John Smith"
+
 anonymize_result = engine.anonymize(
-    text="My name is James Bond",
+    text=person_name,
     analyzer_results=[
-        RecognizerResult(entity_type="PERSON",score=0.8),
+        RecognizerResult(entity_type="PERSON", start=0, end=len(person_name), score=0.8),
     ],
     operators={"PERSON": OperatorConfig("encrypt", {"key": crypto_key})},
 )
