@@ -6,12 +6,12 @@ import presidio_anonymizer
 import spacy
 import spacy_streamlit
 
+models = ["en_core_web_lg"]
+default_text = "Sundar Pichai is the CEO of Google."
+spacy_streamlit.visualize(models, default_text)
 
+# # Run the Streamlit app
+# if __name__ == "__main__":
+#     st.run_app()
 
-# Run the Streamlit app
-if __name__ == "__main__":
-    st.run_app()
-
-    models = ["en_core_web_lg"]
-    default_text = "Sundar Pichai is the CEO of Google."
-    spacy_streamlit.visualize(models, default_text)
+    
