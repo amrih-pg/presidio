@@ -24,7 +24,7 @@ start_time = time.time()
 anonymize_result = engine.anonymize(
     text="My name is James Bond",
     analyzer_results=[
-        RecognizerResult(entity_type="PERSON", start=11, end=21, score=0.8),
+        RecognizerResult(entity_type="PERSON",score=0.8),
     ],
     operators={"PERSON": OperatorConfig("encrypt", {"key": crypto_key})},
 )
