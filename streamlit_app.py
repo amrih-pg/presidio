@@ -6,12 +6,24 @@ import presidio_anonymizer
 import spacy
 import spacy_streamlit
 
-models = ["en_core_web_lg"]
-default_text = "Sundar Pichai is the CEO of Google."
-spacy_streamlit.visualize(models, default_text)
+from presidio_anonymizer import AnonymizerEngine, DeanonymizeEngine
+from presidio_anonymizer.entities import RecognizerResult, OperatorResult, OperatorConfig
+from presidio_anonymizer.operators import Decrypt
 
-# # Run the Streamlit app
-# if __name__ == "__main__":
-#     st.run_app()
+crypto_key = "WmZq4t7w!z%C&F)J"
 
+engine = AnonymizerEngine()
+
+# Invoke the anonymize function with the text,
+# analyzer results (potentially coming from presidio-analyzer)
+# and an 'encrypt' operator to get an encrypted anonymization output:
+anonymize_result = engine.anonymize(
+    text="My name is James Bond",
+    analyzer_results=[
+        RecognizerResult(entity_type="PERSON", start=11, end=21, score=0.8),
+    ],
+    operators={"PERSON": OperatorConfig("encrypt", {"key": crypto_key})},
+)
+
+anonymize_result
     
