@@ -1,11 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
-# Install Presidio dependencies
-st.title('Presidio testing')
-
-# Import other necessary libraries
 import presidio_analyzer
 import presidio_anonymizer
 import spacy
