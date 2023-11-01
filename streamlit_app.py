@@ -41,8 +41,10 @@ start_time = time.time()
 
 encrypted_entity_value = anonymize_result.items[0].text
 
+encryypted_passed_value = "NYPbQLfbHxBxiwHl5rO/Lv9xbrkPvjuIfopElvr0zLs="
+
 # Restore the original entity value
-decrypted = Decrypt().operate(text=encrypted_entity_value, params={"key": crypto_key})
+decrypted = Decrypt().operate(text=encryypted_passed_value, params={"key": crypto_key})
 decrypted
 end_time = time.time()
 execution_time = (end_time - start_time) * 1000  # Convert to milliseconds
